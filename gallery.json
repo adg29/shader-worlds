@@ -1,35 +1,36 @@
 {
   "kind": "gallery",
+  "renderer": "webgl",
   "worlds": [
     {
       "id": "molten",
       "name": "Molten",
       "blurb": "Cracked basalt field as a place, not a UI.",
-      "still": "css"
+      "renderer": "webgl"
     },
     {
       "id": "aurora",
       "name": "Aurora Field",
       "blurb": "Night-sky curtains over a dark horizon.",
-      "still": "css"
+      "renderer": "webgl"
     },
     {
       "id": "caustics",
       "name": "Deep-water caustics",
       "blurb": "Teal-cyan godrays on deep blue.",
-      "still": "css"
+      "renderer": "webgl"
     },
     {
       "id": "oil-film",
       "name": "oil-film",
       "blurb": "Thin-film rainbows on dark water.",
-      "still": "css"
+      "renderer": "webgl"
     },
     {
       "id": "heatmap",
       "name": "city activity heatmap",
-      "blurb": "city activity heatmap",
-      "still": "css"
+      "blurb": "Dark teal street grid with warm city-activity hotspots.",
+      "renderer": "webgl"
     }
   ]
-}\n
+}

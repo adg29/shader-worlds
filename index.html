@@ -8,10 +8,26 @@
     :root { color-scheme: dark; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; background: #050506; color: #f4f4f2; font-family: ui-sans-serif, system-ui, sans-serif; }
-    #feed { height: 100dvh; overflow-y: auto; scroll-snap-type: y mandatory; }
+    #feed {
+      height: 100dvh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+      touch-action: pan-y;
+    }
     .slide { position: relative; height: 100dvh; scroll-snap-align: start; overflow: hidden; }
-    .world { position: absolute; inset: 0; }
-    .caption { position: absolute; left: 1.15rem; bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px)); z-index: 1; font-size: 1.05rem; font-weight: 560; text-shadow: 0 1px 10px #000; }
+    .world, canvas.gl { position: absolute; inset: 0; }
+    canvas.gl { width: 100%; height: 100%; display: block; pointer-events: none; }
+    .caption {
+      position: absolute;
+      left: 1.15rem;
+      bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+      z-index: 1;
+      font-size: 1.05rem;
+      font-weight: 560;
+      text-shadow: 0 1px 10px #000;
+    }
     #molten .world {
       background:
         repeating-linear-gradient(18deg, transparent 0 46px, rgba(255,70,0,.55) 47px, transparent 49px),
@@ -52,11 +68,12 @@
 </head>
 <body>
   <main id="feed">
-    <section class="slide" id="molten"><div class="world"></div><div class="caption">Molten</div></section>
-    <section class="slide" id="aurora"><div class="world"></div><div class="caption">Aurora Field</div></section>
-    <section class="slide" id="caustics"><div class="world"></div><div class="caption">Deep-water caustics</div></section>
-    <section class="slide" id="oil-film"><div class="world"></div><div class="caption">oil-film</div></section>
-    <section class="slide" id="heatmap"><div class="world"></div><div class="caption">city activity heatmap</div></section>
+    <section class="slide" id="molten"><div class="world"></div><canvas class="gl" data-world="molten"></canvas><div class="caption">Molten</div></section>
+    <section class="slide" id="aurora"><div class="world"></div><canvas class="gl" data-world="aurora"></canvas><div class="caption">Aurora Field</div></section>
+    <section class="slide" id="caustics"><div class="world"></div><canvas class="gl" data-world="caustics"></canvas><div class="caption">Deep-water caustics</div></section>
+    <section class="slide" id="oil-film"><div class="world"></div><canvas class="gl" data-world="oil-film"></canvas><div class="caption">oil-film</div></section>
+    <section class="slide" id="heatmap"><div class="world"></div><canvas class="gl" data-world="heatmap"></canvas><div class="caption">city activity heatmap</div></section>
   </main>
+  <script src="worlds.js"></script>
 </body>
 </html>
