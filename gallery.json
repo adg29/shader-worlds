@@ -5,31 +5,46 @@
     {
       "id": "molten",
       "name": "Molten",
+      "author": "shader-lab",
       "blurb": "Cracked basalt field as a place, not a UI.",
+      "still": "stills/molten.png",
+      "shader": "worlds.js#molten",
       "renderer": "webgl"
     },
     {
       "id": "aurora",
       "name": "Aurora Field",
+      "author": "shader-lab",
       "blurb": "Night-sky curtains over a dark horizon.",
+      "still": "stills/aurora.png",
+      "shader": "worlds.js#aurora",
       "renderer": "webgl"
     },
     {
       "id": "caustics",
       "name": "Deep-water caustics",
+      "author": "shader-lab",
       "blurb": "Teal-cyan godrays on deep blue.",
+      "still": "stills/caustics.png",
+      "shader": "worlds.js#caustics",
       "renderer": "webgl"
     },
     {
       "id": "oil-film",
       "name": "oil-film",
+      "author": "shader-lab",
       "blurb": "Thin-film rainbows on dark water.",
+      "still": "stills/oil-film.png",
+      "shader": "worlds.js#oil-film",
       "renderer": "webgl"
     },
     {
       "id": "heatmap",
       "name": "city activity heatmap",
+      "author": "shader-lab",
       "blurb": "Dark teal street grid with warm city-activity hotspots.",
+      "still": "stills/heatmap-wash.png",
+      "shader": "worlds.js#heatmap",
       "renderer": "webgl"
     }
   ]
