@@ -39,6 +39,15 @@
       "renderer": "webgl"
     },
     {
+      "id": "white-wall-noon",
+      "name": "White Wall Noon",
+      "author": "shaderwright",
+      "blurb": "Noon on a white-wall street. They just stepped out. Seats still hot.",
+      "still": "stills/white-wall-noon.png",
+      "shader": "render.mjs",
+      "renderer": "dawn"
+    },
+    {
       "id": "heatmap",
       "name": "city activity heatmap",
       "author": "shader-lab",

@@ -19,6 +19,7 @@
     .slide { position: relative; height: 100dvh; scroll-snap-align: start; overflow: hidden; }
     .world, canvas.gl { position: absolute; inset: 0; }
     canvas.gl { width: 100%; height: 100%; display: block; pointer-events: none; }
+    img.still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
     .caption {
       position: absolute;
       left: 1.15rem;
@@ -72,6 +73,7 @@
     <section class="slide" id="aurora"><div class="world"></div><canvas class="gl" data-world="aurora"></canvas><div class="caption">Aurora Field</div></section>
     <section class="slide" id="caustics"><div class="world"></div><canvas class="gl" data-world="caustics"></canvas><div class="caption">Deep-water caustics</div></section>
     <section class="slide" id="oil-film"><div class="world"></div><canvas class="gl" data-world="oil-film"></canvas><div class="caption">oil-film</div></section>
+    <section class="slide" id="white-wall-noon"><img class="still" src="stills/white-wall-noon.png" alt="White Wall Noon"><div class="caption">White Wall Noon</div></section>
     <section class="slide" id="heatmap"><div class="world"></div><canvas class="gl" data-world="heatmap"></canvas><div class="caption">city activity heatmap</div></section>
   </main>
   <script src="worlds.js"></script>
