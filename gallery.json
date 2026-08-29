@@ -5,7 +5,7 @@
     {
       "id": "molten",
       "name": "Molten",
-      "author": "shader-lab",
+      "author": "shaderwright",
       "blurb": "Cracked basalt field as a place, not a UI.",
       "still": "stills/molten.png",
       "shader": "worlds.js#molten",
@@ -14,7 +14,7 @@
     {
       "id": "aurora",
       "name": "Aurora Field",
-      "author": "shader-lab",
+      "author": "shaderwright",
       "blurb": "Night-sky curtains over a dark horizon.",
       "still": "stills/aurora.png",
       "shader": "worlds.js#aurora",
@@ -23,7 +23,7 @@
     {
       "id": "caustics",
       "name": "Deep-water caustics",
-      "author": "shader-lab",
+      "author": "shaderwright",
       "blurb": "Teal-cyan godrays on deep blue.",
       "still": "stills/caustics.png",
       "shader": "worlds.js#caustics",
@@ -32,7 +32,7 @@
     {
       "id": "oil-film",
       "name": "oil-film",
-      "author": "shader-lab",
+      "author": "shaderwright",
       "blurb": "Thin-film rainbows on dark water.",
       "still": "stills/oil-film.png",
       "shader": "worlds.js#oil-film",
