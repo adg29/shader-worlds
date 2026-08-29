@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Worlds</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #050506; color: #f4f4f2; font-family: ui-sans-serif, system-ui, sans-serif; }
+    #feed { height: 100dvh; overflow-y: auto; scroll-snap-type: y mandatory; }
+    .slide { position: relative; height: 100dvh; scroll-snap-align: start; overflow: hidden; }
+    .world { position: absolute; inset: 0; }
+    .caption { position: absolute; left: 1.15rem; bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px)); z-index: 1; font-size: 1.05rem; font-weight: 560; text-shadow: 0 1px 10px #000; }
+    #molten .world {
+      background:
+        repeating-linear-gradient(18deg, transparent 0 46px, rgba(255,70,0,.55) 47px, transparent 49px),
+        repeating-linear-gradient(-28deg, transparent 0 72px, rgba(255,120,20,.35) 73px, transparent 76px),
+        radial-gradient(ellipse 50% 28% at 32% 68%, #ff4d00, transparent 60%),
+        radial-gradient(ellipse 36% 22% at 74% 38%, #ff2a00, transparent 55%),
+        linear-gradient(160deg, #070504, #140a08 50%, #050403);
+    }
+    #aurora .world {
+      background:
+        radial-gradient(ellipse 90% 42% at 50% 18%, rgba(56,255,150,.5), transparent 62%),
+        radial-gradient(ellipse 55% 34% at 22% 36%, rgba(170,70,255,.4), transparent 58%),
+        radial-gradient(ellipse 48% 28% at 78% 30%, rgba(20,220,190,.32), transparent 55%),
+        linear-gradient(#02040c, #061018 58%, #020308);
+    }
+    #caustics .world {
+      background:
+        repeating-radial-gradient(ellipse at 40% 0%, rgba(90,255,230,.28) 0 2px, transparent 18px 46px),
+        radial-gradient(ellipse 70% 50% at 50% -10%, rgba(40,220,255,.35), transparent 60%),
+        linear-gradient(#021018, #034 55%, #01202a);
+    }
+    #oil-film .world {
+      background:
+        conic-gradient(from 210deg at 60% 40%, #1a0033, #004466, #2a0044, #003322, #220033, #1a0033),
+        radial-gradient(circle at 30% 70%, rgba(255,80,200,.35), transparent 40%),
+        linear-gradient(#04050a, #0a0810);
+      background-blend-mode: screen, screen, normal;
+    }
+    #heatmap .world {
+      background:
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(0,255,220,.22) 28px 29px),
+        repeating-linear-gradient(0deg, transparent 0 22px, rgba(0,255,220,.16) 22px 23px),
+        radial-gradient(ellipse 40% 30% at 55% 48%, rgba(255,80,40,.55), transparent 55%),
+        radial-gradient(ellipse 28% 18% at 72% 40%, rgba(255,200,40,.4), transparent 50%),
+        linear-gradient(#021014, #041820);
+    }
+  </style>
+</head>
+<body>
+  <main id="feed">
+    <section class="slide" id="molten"><div class="world"></div><div class="caption">Molten</div></section>
+    <section class="slide" id="aurora"><div class="world"></div><div class="caption">Aurora Field</div></section>
+    <section class="slide" id="caustics"><div class="world"></div><div class="caption">Deep-water caustics</div></section>
+    <section class="slide" id="oil-film"><div class="world"></div><div class="caption">oil-film</div></section>
+    <section class="slide" id="heatmap"><div class="world"></div><div class="caption">city activity heatmap</div></section>
+  </main>
+</body>
+</html>
