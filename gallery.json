@@ -9,7 +9,8 @@
       "blurb": "Cracked basalt field as a place, not a UI.",
       "still": "stills/molten.png",
       "shader": "worlds.js#molten",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "aurora",
@@ -18,7 +19,8 @@
       "blurb": "Night-sky curtains over a dark horizon.",
       "still": "stills/aurora.png",
       "shader": "worlds.js#aurora",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "caustics",
@@ -27,7 +29,8 @@
       "blurb": "Teal-cyan godrays on deep blue.",
       "still": "stills/caustics.png",
       "shader": "worlds.js#caustics",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "oil-film",
@@ -36,7 +39,8 @@
       "blurb": "Thin-film rainbows on dark water.",
       "still": "stills/oil-film.png",
       "shader": "worlds.js#oil-film",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "curl-trap",
@@ -45,7 +49,8 @@
       "blurb": "Beauty that moves. Time-only.",
       "still": "stills/curl-trap.png",
       "shader": "worlds.js#curl-trap",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "letter-orbit",
@@ -54,7 +59,8 @@
       "blurb": "A spinning letter sphere. Time has to run.",
       "still": "stills/letter-orbit.png",
       "shader": "worlds.js#letter-orbit",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
     },
     {
       "id": "heatmap",
@@ -63,7 +69,18 @@
       "blurb": "Dark teal street grid with warm city-activity hotspots.",
       "still": "stills/heatmap-wash.png",
       "shader": "worlds.js#heatmap",
-      "renderer": "webgl"
+      "renderer": "webgl",
+      "status": "published"
+    },
+    {
+      "id": "ray-globe",
+      "name": "Ray Globe",
+      "author": "shaderwright",
+      "blurb": "Point-cloud globe with hot pole and bursting rays. Time-only.",
+      "still": "stills/ray-globe.png",
+      "shader": "worlds.js#ray-globe",
+      "renderer": "webgl",
+      "status": "draft"
     }
   ]
 }
