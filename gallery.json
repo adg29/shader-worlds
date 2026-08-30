@@ -10,7 +10,8 @@
       "still": "stills/molten.png",
       "shader": "worlds.js#molten",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "aurora",
@@ -20,7 +21,8 @@
       "still": "stills/aurora.png",
       "shader": "worlds.js#aurora",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "caustics",
@@ -30,7 +32,8 @@
       "still": "stills/caustics.png",
       "shader": "worlds.js#caustics",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "oil-film",
@@ -40,7 +43,8 @@
       "still": "stills/oil-film.png",
       "shader": "worlds.js#oil-film",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "curl-trap",
@@ -50,7 +54,8 @@
       "still": "stills/curl-trap.png",
       "shader": "worlds.js#curl-trap",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "letter-orbit",
@@ -60,7 +65,8 @@
       "still": "stills/letter-orbit.png",
       "shader": "worlds.js#letter-orbit",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "heatmap",
@@ -70,7 +76,8 @@
       "still": "stills/heatmap-wash.png",
       "shader": "worlds.js#heatmap",
       "renderer": "webgl",
-      "status": "published"
+      "status": "published",
+      "notes": []
     },
     {
       "id": "ray-globe",
@@ -80,7 +87,11 @@
       "still": "stills/ray-globe.png",
       "shader": "worlds.js#ray-globe",
       "renderer": "webgl",
-      "status": "draft"
+      "status": "draft",
+      "notes": [
+        { "at": "2026-08-29", "text": "Inspired by Patternseeing point-sphere + rays" },
+        { "at": "2026-08-30", "text": "First hang as draft with time-loop canvas" }
+      ]
     }
   ]
 }

@@ -45,6 +45,32 @@
       text-shadow: none;
       backdrop-filter: blur(8px);
     }
+    .notes {
+      position: absolute;
+      left: 1.15rem;
+      top: 1.15rem;
+      z-index: 1;
+      max-width: 22rem;
+      padding: 0.55rem 0.75rem;
+      background: rgba(5, 5, 6, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 0.35rem;
+      font-size: 0.75rem;
+      line-height: 1.45;
+      color: rgba(244, 244, 242, 0.85);
+    }
+    .notes .note-item {
+      margin-bottom: 0.40rem;
+    }
+    .notes .note-item:last-child {
+      margin-bottom: 0;
+    }
+    .notes .note-date {
+      font-size: 0.68rem;
+      color: rgba(244, 244, 242, 0.55);
+      font-weight: 600;
+      margin-right: 0.35rem;
+    }
     #molten .world {
       background:
         repeating-linear-gradient(18deg, transparent 0 46px, rgba(255,70,0,.55) 47px, transparent 49px),
@@ -110,6 +136,35 @@
     <section class="slide" id="heatmap"><div class="world"></div><canvas class="gl" data-world="heatmap"></canvas><div class="caption">city activity heatmap</div></section>
     <section class="slide" id="ray-globe"><div class="draft-chip">Draft</div><div class="world"></div><canvas class="gl" data-world="ray-globe"></canvas><div class="caption">Ray Globe</div></section>
   </main>
+  <script>
+    (async () => {
+      try {
+        const resp = await fetch('gallery.json');
+        const gallery = await resp.json();
+        
+        gallery.worlds.forEach(world => {
+          if (world.notes && world.notes.length > 0) {
+            const slide = document.getElementById(world.id);
+            if (slide) {
+              const notesDiv = document.createElement('div');
+              notesDiv.className = 'notes';
+              
+              world.notes.forEach(note => {
+                const noteItem = document.createElement('div');
+                noteItem.className = 'note-item';
+                noteItem.innerHTML = `<span class="note-date">${note.at}</span><span class="note-text">${note.text}</span>`;
+                notesDiv.appendChild(noteItem);
+              });
+              
+              slide.appendChild(notesDiv);
+            }
+          }
+        });
+      } catch (err) {
+        console.error('Failed to load notes:', err);
+      }
+    })();
+  </script>
   <script src="worlds.js"></script>
 </body>
 </html>
