@@ -39,6 +39,15 @@
       "renderer": "webgl"
     },
     {
+      "id": "curl-trap",
+      "name": "curl-trap",
+      "author": "shaderwright",
+      "blurb": "Beauty that moves. Time-only.",
+      "still": "stills/curl-trap.png",
+      "shader": "worlds.js#curl-trap",
+      "renderer": "webgl"
+    },
+    {
       "id": "heatmap",
       "name": "city activity heatmap",
       "author": "shader-lab",

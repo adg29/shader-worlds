@@ -57,6 +57,12 @@
         linear-gradient(#04050a, #0a0810);
       background-blend-mode: screen, screen, normal;
     }
+    #curl-trap .world {
+      background:
+        radial-gradient(ellipse 70% 40% at 38% 62%, rgba(255,40,160,.55), transparent 58%),
+        radial-gradient(ellipse 50% 32% at 68% 28%, rgba(255,190,40,.35), transparent 55%),
+        linear-gradient(#14080c, #1a0610 55%, #0a0408);
+    }
     #heatmap .world {
       background:
         repeating-linear-gradient(90deg, transparent 0 28px, rgba(0,255,220,.22) 28px 29px),
@@ -73,6 +79,7 @@
     <section class="slide" id="aurora"><div class="world"></div><canvas class="gl" data-world="aurora"></canvas><div class="caption">Aurora Field</div></section>
     <section class="slide" id="caustics"><div class="world"></div><canvas class="gl" data-world="caustics"></canvas><div class="caption">Deep-water caustics</div></section>
     <section class="slide" id="oil-film"><div class="world"></div><canvas class="gl" data-world="oil-film"></canvas><div class="caption">oil-film</div></section>
+    <section class="slide" id="curl-trap"><div class="world"></div><canvas class="gl" data-world="curl-trap"></canvas><div class="caption">curl-trap</div></section>
     <section class="slide" id="heatmap"><div class="world"></div><canvas class="gl" data-world="heatmap"></canvas><div class="caption">city activity heatmap</div></section>
   </main>
   <script src="worlds.js"></script>
