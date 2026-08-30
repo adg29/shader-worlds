@@ -48,6 +48,15 @@
       "renderer": "webgl"
     },
     {
+      "id": "letter-orbit",
+      "name": "letter-orbit",
+      "author": "shaderwright",
+      "blurb": "A spinning letter sphere. Time has to run.",
+      "still": "stills/letter-orbit.png",
+      "shader": "worlds.js#letter-orbit",
+      "renderer": "webgl"
+    },
+    {
       "id": "heatmap",
       "name": "city activity heatmap",
       "author": "shader-lab",
