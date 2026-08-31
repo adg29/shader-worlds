@@ -1,0 +1,13 @@
+{
+  "kind": "stream",
+  "source": "shader-lab",
+  "looks": [
+    "molten",
+    "aurora",
+    "caustics",
+    "oil-film",
+    "heatmap",
+    "curl-trap",
+    "letter-orbit"
+  ]
+}
