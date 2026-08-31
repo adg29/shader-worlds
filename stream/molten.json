@@ -1,0 +1,6 @@
+{
+  "id": "molten",
+  "source": "shaderwright",
+  "wgsl": "worlds.js#molten",
+  "still": "https://adg29.github.io/shader-worlds/stills/molten.png"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "oil-film",
+  "source": "shaderwright",
+  "wgsl": "worlds.js#oil-film",
+  "still": "https://adg29.github.io/shader-worlds/stills/oil-film.png"
+}

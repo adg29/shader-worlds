@@ -1,0 +1,6 @@
+{
+  "id": "caustics",
+  "source": "shaderwright",
+  "wgsl": "worlds.js#caustics",
+  "still": "https://adg29.github.io/shader-worlds/stills/caustics.png"
+}

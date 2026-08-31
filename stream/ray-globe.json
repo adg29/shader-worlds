@@ -1,0 +1,7 @@
+{
+  "id": "ray-globe",
+  "source": "shaderwright",
+  "wgsl": "worlds.js#ray-globe",
+  "still": "https://adg29.github.io/shader-worlds/stills/ray-globe.png",
+  "notes": "draft"
+}

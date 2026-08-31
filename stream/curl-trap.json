@@ -1,0 +1,6 @@
+{
+  "id": "curl-trap",
+  "source": "shaderwright",
+  "wgsl": "worlds.js#curl-trap",
+  "still": "https://adg29.github.io/shader-worlds/stills/curl-trap.png"
+}
