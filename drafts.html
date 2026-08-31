@@ -45,6 +45,58 @@
       text-shadow: none;
       backdrop-filter: blur(8px);
     }
+    .promote {
+      position: absolute;
+      right: 1.15rem;
+      bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+      pointer-events: auto;
+    }
+    .promote button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      padding: 0.48rem 0.78rem;
+      border-radius: 999px;
+      color: #050506;
+      background: #f4f4f2;
+    }
+    .promote button.ghost {
+      background: rgba(5, 5, 6, 0.72);
+      color: #f4f4f2;
+      backdrop-filter: blur(10px);
+    }
+    .promote button.danger {
+      background: #f4f4f2;
+    }
+    .promote .ask {
+      display: none;
+      max-width: 11.5rem;
+      text-align: right;
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: rgba(244, 244, 242, 0.88);
+      text-shadow: 0 1px 8px #000;
+    }
+    .promote[data-state="confirm"] .ask { display: block; }
+    .promote[data-state="idle"] [data-act="keep"],
+    .promote[data-state="idle"] [data-act="publish"] { display: none; }
+    .promote[data-state="confirm"] [data-act="go"] { display: none; }
+    .promote[data-state="queued"] [data-act="go"],
+    .promote[data-state="queued"] [data-act="keep"],
+    .promote[data-state="queued"] [data-act="publish"] { display: none; }
+    .promote[data-state="queued"] .ask { display: block; }
+    .slide[data-promote="queued"] .draft-chip {
+      background: rgba(244, 244, 242, 0.92);
+    }
     .notes {
       position: absolute;
       left: 1.15rem;
@@ -138,30 +190,105 @@
   </main>
   <script>
     (async () => {
-      try {
-        const resp = await fetch('gallery.json');
-        const gallery = await resp.json();
-        
-        gallery.worlds.forEach(world => {
-          if (world.notes && world.notes.length > 0) {
-            const slide = document.getElementById(world.id);
-            if (slide) {
-              const notesDiv = document.createElement('div');
-              notesDiv.className = 'notes';
-              
-              world.notes.forEach(note => {
-                const noteItem = document.createElement('div');
-                noteItem.className = 'note-item';
-                noteItem.innerHTML = `<span class="note-date">${note.at}</span><span class="note-text">${note.text}</span>`;
-                notesDiv.appendChild(noteItem);
-              });
-              
-              slide.appendChild(notesDiv);
-            }
+      const KEY = "sw-promote-queue";
+      const queue = (() => {
+        try { return JSON.parse(localStorage.getItem(KEY) || "[]"); }
+        catch (e) { return []; }
+      })();
+      const save = () => localStorage.setItem(KEY, JSON.stringify(queue));
+
+      function setState(slide, state) {
+        const bar = slide.querySelector(".promote");
+        if (!bar) return;
+        bar.dataset.state = state;
+        slide.dataset.promote = state;
+        const ask = bar.querySelector(".ask");
+        const go = bar.querySelector('[data-act="go"]');
+        if (state === "idle") {
+          ask.textContent = "";
+          go.textContent = "Promote";
+        } else if (state === "confirm") {
+          ask.textContent = "Publish to the public swipe?";
+        } else if (state === "queued") {
+          ask.textContent = "Queued for the wall";
+        }
+      }
+
+      function mountPromote(slide, world) {
+        if (slide.querySelector(".promote")) return;
+        const bar = document.createElement("div");
+        bar.className = "promote";
+        bar.dataset.state = "idle";
+        const ask = document.createElement("div");
+        ask.className = "ask";
+        const go = document.createElement("button");
+        go.type = "button";
+        go.dataset.act = "go";
+        go.textContent = "Promote";
+        const keep = document.createElement("button");
+        keep.type = "button";
+        keep.className = "ghost";
+        keep.dataset.act = "keep";
+        keep.textContent = "Keep draft";
+        const pub = document.createElement("button");
+        pub.type = "button";
+        pub.dataset.act = "publish";
+        pub.textContent = "Publish";
+        bar.appendChild(ask);
+        bar.appendChild(keep);
+        bar.appendChild(pub);
+        bar.appendChild(go);
+        slide.appendChild(bar);
+        go.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setState(slide, "confirm");
+        });
+        keep.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setState(slide, "idle");
+        });
+        pub.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (queue.indexOf(world.id) < 0) queue.push(world.id);
+          save();
+          setState(slide, "queued");
+          if (history.replaceState) {
+            history.replaceState(null, "", "#promote=" + encodeURIComponent(world.id));
+          } else {
+            location.hash = "promote=" + encodeURIComponent(world.id);
           }
         });
+        if (queue.indexOf(world.id) >= 0) setState(slide, "queued");
+      }
+
+      try {
+        const resp = await fetch("gallery.json");
+        const gallery = await resp.json();
+        gallery.worlds.forEach(function (world) {
+          const slide = document.getElementById(world.id);
+          if (!slide) return;
+          if (world.notes && world.notes.length) {
+            const notesDiv = document.createElement("div");
+            notesDiv.className = "notes";
+            world.notes.forEach(function (note) {
+              const noteItem = document.createElement("div");
+              noteItem.className = "note-item";
+              const d = document.createElement("span");
+              d.className = "note-date";
+              d.textContent = note.at || "";
+              const x = document.createElement("span");
+              x.className = "note-text";
+              x.textContent = note.text || "";
+              noteItem.appendChild(d);
+              noteItem.appendChild(x);
+              notesDiv.appendChild(noteItem);
+            });
+            slide.appendChild(notesDiv);
+          }
+          if (world.status === "draft") mountPromote(slide, world);
+        });
       } catch (err) {
-        console.error('Failed to load notes:', err);
+        console.error("Failed to load gallery:", err);
       }
     })();
   </script>
