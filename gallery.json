@@ -48,25 +48,35 @@
     },
     {
       "id": "curl-trap",
-      "name": "curl-trap",
+      "name": "Hot Marble",
       "author": "shaderwright",
       "blurb": "Beauty that moves. Time-only.",
       "still": "stills/curl-trap.png",
       "shader": "worlds.js#curl-trap",
       "renderer": "webgl",
       "status": "published",
-      "notes": []
+      "notes": [
+        {
+          "at": "2026-09-02",
+          "text": "function curl-trap"
+        }
+      ]
     },
     {
       "id": "letter-orbit",
-      "name": "letter-orbit",
+      "name": "Walking Heat",
       "author": "shaderwright",
       "blurb": "A spinning letter sphere. Time has to run.",
       "still": "stills/letter-orbit.png",
       "shader": "worlds.js#letter-orbit",
       "renderer": "webgl",
       "status": "published",
-      "notes": []
+      "notes": [
+        {
+          "at": "2026-09-02",
+          "text": "function letter-orbit"
+        }
+      ]
     },
     {
       "id": "heatmap",
@@ -89,8 +99,14 @@
       "renderer": "webgl",
       "status": "draft",
       "notes": [
-        { "at": "2026-08-29", "text": "Inspired by Patternseeing point-sphere + rays" },
-        { "at": "2026-08-30", "text": "First hang as draft with time-loop canvas" }
+        {
+          "at": "2026-08-29",
+          "text": "Inspired by Patternseeing point-sphere + rays"
+        },
+        {
+          "at": "2026-08-30",
+          "text": "First hang as draft with time-loop canvas"
+        }
       ]
     }
   ]
